@@ -1,59 +1,76 @@
-<html><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
-  </head><body>
-    <div class="section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h1 class="text-center">Select a Training Mode
-              <small>&nbsp;We Suggest RoboCoach</small>
-            </h1>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
-            <h2 class="text-primary">Robo Coach</h2>
-            <p>Let our data-driven algorithm build you a training schedule, and walk
-              you through workouts.&nbsp;</p>
-          </div>
-          <div class="col-md-4">
-            <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
-            <h2 class="text-primary">Base Fitness</h2>
-            <p>Prepare your body and mind for the demands of later training phases, while
-              pushing the frontier of your anaerobic threshold.&nbsp;</p>
-          </div>
-          <div class="col-md-4">
-            <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
-            <h2 class="text-primary">Strength</h2>
-            <p>A chain is only as strong as its weekest link. Strategecally strengthen
-              yours... mostly through intelligent hang boarding.&nbsp;</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
-            <h2 class="text-primary">Power</h2>
-            <p>Campus and limit-boulder your way to freakish, explosive movement.&nbsp;</p>
-          </div>
-          <div class="col-md-4">
-            <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
-            <h2 class="text-primary">Power Endurance</h2>
-            <p>Ready to suffer 'til you puke? The send is so close I can smell it! &nbsp;</p>
-          </div>
-          <div class="col-md-4">
-            <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
-            <h2 class="text-primary">Supplemental Exercise</h2>
-            <p>Terrible at gaston-lockoffs? Can't mantlel to save your life? Abs don't pop? Really? Oh, hell no. Let's make those abs pop.&nbsp;</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  
+<template name="modeSelector">
 
-</body></html>
+        <div class="container">
+            <div class="row well">
+                <div class="col-md-12">
+                    <h1 class="text-center">Select a Training Mode
+                        <small>&nbsp;We Suggest RoboCoach</small>
+                    </h1>
+                </div>
+            </div>
+            <div class="well">
+                <div class="row">
+
+
+
+                    <a href="{{pathFor 'baseFitness'}}">
+                        <div class="col-md-4">
+                            <a><img src="/images/navigation_images/base_fitness_treadwall.jpeg" class="img-responsive img-circle"></a>
+                            <h2 class="text-primary">Base Fitness/ARC</h2>
+                            <p>Prepare your body and mind for the demands of later training phases, while
+                            pushing the frontier of your anaerobic threshold.&nbsp;</p>
+                        </div>
+                    </a>
+
+
+                    <a href="{{pathFor 'strength'}}">
+                        <div class="col-md-4">
+                            <a><img src="/images/navigation_images/strength_hangboard.jpeg" class="img-responsive img-circle"></a>
+                            <h2 class="text-primary">Strength</h2>
+                            <p>A chain is only as strong as its weekest link. Strategecally strengthen
+                            yours... mostly through intelligent hang boarding.&nbsp;</p>
+                        </div>
+                    </a>
+
+                    <a href="{{pathFor 'power'}}">
+                        <div class="col-md-4">
+                            <a><img src="images/navigation_images/power_campus.jpeg" class="img-responsive img-circle"></a>
+                            <h2 class="text-primary">Power</h2>
+                            <p> Campus and limit-boulder your way to freakish, explosive movement.&nbsp;</p>
+                        </div>
+                    </a>
+
+
+                </div>
+                <div class="row">
+
+                    <a href="{{pathFor 'powerEndurance'}}">
+                        <div class="col-md-4">
+                            <a><img src="/images/navigation_images/pe_steep_route.jpeg" class="img-responsive img-circle"></a>
+                            <h2 class="text-primary">Power Endurance</h2>
+                            <p>Embrace the burn 'til you puke. The send is so close I can smell it! &nbsp;</p>
+                        </div>
+                    </a>
+
+                    <a href="{{pathFor 'technique'}}">
+                        <div class="col-md-4">
+                            <a><img src="/images/navigation_images/technique.jpeg" class="img-responsive  img-circle"></a>
+                            <h2 class="text-primary">Technique/Skill</h2>
+                            <p>Campus and limit-boulder your way to freakish, explosive movement.&nbsp;</p>
+                        </div>
+                    </a>
+
+                    <a href="{{pathFor 'supplementalExercises'}}">
+                        <div class="col-md-4">
+                            <a><img src="/images/navigation_images/supp_training_front_lever.jpeg" class="img-responsive img-circle"></a>
+                            <h2 class="text-primary">Supplemental Exercise</h2>
+                            <p>Terrible at gaston-lockoffs? Can't mantlel to save your life? Abs don't pop? Really? Oh, hell no. Let's make those abs pop.&nbsp;</p>
+                        </div>
+                    </a>
+                </div><!-- close row -->
+            </div>
+
+        </div>
+
+
+</template>
