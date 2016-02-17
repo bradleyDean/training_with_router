@@ -1,5 +1,4 @@
-<template name="mainNav">
-    <div class="container">
+<template name="mainNav"> <div class="container">
 
         <div class="navbar navbar-default">
                 <div class="navbar-header">
@@ -18,9 +17,11 @@
                         <li class="active">
                             <a href="{{pathFor 'landingPage'}}">Home</a> <!-- TODO: need a home section... or is that the landing page? -->
                         </li>
+                        {{#if currentUser }}
                         <li>
                             <a href="{{pathFor 'modeSelector'}}">Activity Selector</a>
                         </li>
+                        {{/if}}
                         <li>
                             {{> loginButtons allign="right"}}
                         </li>
