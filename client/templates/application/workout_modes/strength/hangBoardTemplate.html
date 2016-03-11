@@ -1,0 +1,30 @@
+<template name='hangBoardForm'>
+    <div class='container'>    
+        <div class='well row'>
+            <div class='col-sm-2'>
+                <label for='training-level'>Training Level:</label>
+                <select  name='training-level' class = 'training-level ' > <!--CHANGE -->
+                    <option  >Beginner</option>
+                    <option  >Intermediate</option>
+                    <option >Advanced</option>
+                </select>
+            </div>
+            <div class='col-sm-4'>
+                <label for='userweight'>Weight:</label>
+                <input type="number" class="form-control col-sm-4"   name='userWeight' placeholder={{weight}} value = {{currentWeight}} min='1' >
+            </div>
+
+        </div>
+        <form >
+            {{#each exercises}}
+                <!-- extendContext clones the @index and renames it 'exIndex' 
+                    -exIndex refers to exercise index in child templates
+                    -exIndex does not mutate @index in child templates -->
+                {{> hangBoardExercise extendContext 'exIndex' @index}}
+            {{/each}}
+            <div class='well'>
+                <input type='submit' class='btn-lg btn-primary submit-ex' value='Submit Hangboard Data' name='' />
+            </div>
+        </form>
+    </div>
+</template>

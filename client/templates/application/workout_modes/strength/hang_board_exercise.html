@@ -1,0 +1,69 @@
+<template name='hangBoardExercise'>
+    <div name='exercise' class='well'>
+		<h3 ><!-- NOTE: change id='ex_hider_1' to appropriate exercise number throughout document -->
+
+			<button type="button" class="ex_hider btn btn-info btn-sm">
+
+                Toggle Exercise {{increment exIndex}} 
+                     <span {{exerciseButtonSpanAttributes}}></span>
+
+			</button>
+		</h3>
+
+		<!-- ******** Collapse This ******************-->
+        <div {{exerciseFormAttributes}}>
+
+				<div class='row'> 
+					<div class='col-sm-5'>
+							<select  name='grip' class = 'grip_selector' > <!--CHANGE -->
+                                {{#each gripOptions}}
+                                <option value={{val}} {{isPrevGrip}}>{{label}}</option>  
+                                {{/each}} 
+							<!--<option value="" disabled selected>Select a Grip</option>
+								<option value='warmup_jug' >Warmup Jug</option>
+								<option value ='lg_edge'> Large Edge</option>
+								<option value='med_edge'>Medium Edge</option>
+								<option value='sm_edge'>Small Edge</option>
+								<option value='mri_2pad'>Middle, Ring, Index, 2-pad Pocket</option>
+								<option value='mri_1pad'>Middle, Ring, Index, 1-pad Pocket</option>
+								<option value='mri_half_pad'>Middle, Ring, Index, 1/2-pad Pocket</option>
+								<option value='mr_2pad'>Middle, Ring 2-pad Pocket</option>
+								<option value='mr_1pad'>Middle, Ring 1-pad Pocket</option>
+								<option value='mr_half_pad'>Middle, Ring 1/2-pad Pocket</option>
+								<option value='lg_pinch'>Large Pinch</option>
+								<option value='sm_pinch'>Small Pinch</option>
+                                <option value='sloper'>Sloper</option> -->
+							</select>
+					</div> 
+				</div><!--end 'grip_select' div-->
+
+				<!-- BEGIN set data input area -->
+				<table class="table collapse in">
+					<thead>
+						<tr>
+                            <th class='col-lg-1'>Set </th>
+							<th class='col-lg-1 col-xs-2'>Goal Reps</th>
+							<th class='col-lg-1 col-xs-2'>Reps Achieved</th>
+							<th class='col-xs-1'>Resistance</th>
+							<th class='col-xs-2'>Felt?</th>
+							<th class='col-xs-1'>Notes</th>
+						</tr>
+					</thead>
+                        <tbody>
+
+                           {{#each sets}}
+                              {{> hangBoardSet setIndex = @index}}
+                           {{/each}}
+                           {{#if newSet}}
+                              {{> newHangBoardSet}}
+                           {{/if}}
+                           
+
+                           <tr> <button class="glyphicon glyphicon-plus new-set" >New Set</button></tr>
+
+                           
+                        </tbody>
+                </table>
+        </div><!-- end {{exerciseFormAttributes}} -->
+    </div>
+</template>

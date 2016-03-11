@@ -1,3 +1,6 @@
 *.jpeg
 *.jpg
+*.swp
+*.swo
+.*
 .meteor/

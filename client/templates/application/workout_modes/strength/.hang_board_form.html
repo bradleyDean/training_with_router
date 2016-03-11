@@ -1,0 +1,171 @@
+<!--
+<template name="hangBoardForm">
+-->
+<div class='container'>
+			
+	<div class='duplicate_this'>
+		<h3 ><!-- NOTE: change id='ex_hider_1' to appropriate exercise number throughout document -->
+
+			<button id='ex_hider_1'  type="button" class="ex_hider btn btn-info btn-sm">
+
+				 Exercise 1 <span class='glyphicon glyphicon-chevron-down'></span>
+
+			</button>
+		</h3>
+
+		<!-- ******** Collapse This ******************-->
+
+		<form class='form-horizontal ex_data_form collapse in'>
+			<div  class='collapse_ex collaps in'>
+
+				<div class='row'> 
+					<div class='col-sm-5'>
+						<label>
+							<select  name='grip' class = 'grip_selector' > <!--CHANGE -->
+								<option value='warmup_jug' selected='selected'>Warmup Jug</option>
+								<option value ='lg_edge'> Large Edge</option>
+								<option value='med_edge'>Medium Edge</option>
+								<option value='sm_edge'>Small Edge</option>
+								<option value='mri_2pad'>Middle, Ring, Index, 2-pad Pocket</option>
+								<option value='mri_1pad'>Middle, Ring, Index, 1-pad Pocket</option>
+								<option value='mri_half_pad'>Middle, Ring, Index, 1/2-pad Pocket</option>
+								<option value='mr_2pad'>Middle, Ring 2-pad Pocket</option>
+								<option value='mr_1pad'>Middle, Ring 1-pad Pocket</option>
+								<option value='mr_half_pad'>Middle, Ring 1/2-pad Pocket</option>
+								<option value='lg_pinch'>Large Pinch</option>
+								<option value='sm_pinch'>Small Pinch</option>
+								<option value='sloper'>Sloper</option>
+							</select>
+							Select Grip</label>
+					</div> 
+
+					<div class='sm-col-7 pull-left'>
+						<label for="notes_1">notes:</label>
+						<input type="text" class="" id="notes_1" name='ex_notes' placeholder="Feeling psyched!">
+					</div> 
+
+				</div><!--end 'grip_select' div-->
+
+				<!-- BEGIN set data input area -->
+				<table class="table collapse in">
+					<thead>
+						<tr>
+							<th class='col-lg-1'>Set</th>
+							<th class='col-lg-1 col-xs-2'>Goal Reps</th>
+							<th class='col-lg-1 col-xs-2'>Reps Achieved</th>
+							<th class='col-xs-1'>Resistance</th>
+							<th class='col-xs-2'>Felt?</th>
+							<th class='col-xs-1'>Notes</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='set'>
+							<td >1<button type="button" class="last_session btn btn-info btn-sm pull-right"> 
+										Last Session<span class='glyphicon glyphicon-chevron-right'></span>
+									</button>
+</td>
+							<td ><input type="number" class="form-control"   name='rep_goal'  min='1'></td>
+
+							<td><input type="number" class="form-control"  name='rep_ach' min='0' ></td>
+
+							<td> <input type="number" class="form-control" name='resistance'  placeholder="negative values allowed"></td>
+
+							<!-- BEGIN range (easy vs. hard) slider -->
+							<td>
+								<label ></label>
+								<input type="range" class='felt' name="felt" value=3 min="1" max="6">
+							</td>
+							<!-- END range (easy vs. hard) slider -->
+
+							<!-- BEGIN collapse notes/notes textarea --> 	
+							<td>
+								<div class="form-group">
+									<button type="button" class="note_hider btn btn-info btn-sm pull-right"> 
+										<span class='glyphicon glyphicon-chevron-left'></span>
+									</button>
+
+
+									<textarea class="form-control notes collapse" rows="5"  name='notes'></textarea>
+
+								</div> 
+							</td><!--END collapse notes/notes textarea -->
+						</tr>
+						<tr class='set'>
+							<td>2</td>
+							<td><input type="number" class="form-control" name='rep_goal' min='1'></td>
+							<td><input type="number" class="form-control" min='0' name='rep_ach'></td>
+							<td><input type="number" class="form-control" name='resistance' placeholder="negative values allowed"></td>
+							<td>
+								<label></label>
+								<input type="range" class='felt'  name="felt" value=3 min="1" max="6">
+							</td>
+							<!-- BEGIN collapse notes/notes textarea --> 	
+							<td>
+								<div class="form-group">
+									<button type="button" class="note_hider btn btn-info btn-sm pull-right"> 
+										<span class='glyphicon glyphicon-chevron-left'></span>
+									</button>
+
+
+									<textarea class="form-control notes collapse" rows="5"  name='notes'></textarea>
+
+								</div> 
+							</td><!--END collapse notes/notes textarea -->
+
+
+
+						</tr>
+						<tr class='set'>
+							<td>3</td>  	
+							<td><input type="number" class="form-control"  name='rep_goal' min='1' ></td>
+							<td><input type="number" class="form-control"  name='rep_ach' min='0'></td>
+							<td> <input type="number" class="form-control" name='resistance' placeholder="negative values allowed"></td>
+							<td>
+								<label></label>
+								<input type="range" class='felt' name="felt" value=3 min="1" max="6">
+							</td>
+							<!-- BEGIN collapse notes/notes textarea --> 	
+							<td>
+								<div class="form-group">
+									<button type="button" class="note_hider btn btn-info btn-sm pull-right"> 
+										<span class='glyphicon glyphicon-chevron-left'></span>
+									</button>
+
+
+									<textarea class="form-control notes collapse" rows="5"  name='notes'></textarea>
+
+								</div> 
+							</td><!--END collapse notes/notes textarea -->
+
+						</tr>
+					</tbody>
+				</table>
+				<!-- END set data input area -->
+
+			</div>
+
+        </form><!--End ex_1 data form-->
+	</div>
+			<!-- ******* End Collapseable ***************-->
+
+
+           
+</div>
+
+	<button id='jsonify_button_3' type="submit" class=" btn btn-info btn-sm">Jsonify Data</button>
+	<button id='new_ex_button'  class=" btn btn-info btn-sm">New Exercise</button>
+<!--
+<script type=text/javascript>
+  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+<script type='text/javascript' src="{{ url_for('static', filename='jquery-1.11.3.min.js') }}"></script> -->
+<!-- ****************************IMPORT SCRIPTS***************************************-->
+
+
+			  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>--> 
+			  
+			  <!--  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+
+			  <!--<link href="/static/bootstrap.min.css" rel="stylesheet" media="screen">-->
+			  <!--<link href="/static/bootstrap-responsive.min.css" rel="stylesheet">-->
+              <!--</template> -->
