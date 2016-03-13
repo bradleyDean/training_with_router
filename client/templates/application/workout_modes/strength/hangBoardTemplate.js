@@ -1,14 +1,12 @@
 Template.hangBoardForm.onCreated(function(){
     //passing 'null' as name argument makes the collection only exist client-side
-    var HangBoardFormData = new Mongo.Collection(null);
+    HangBoardFormData = new Mongo.Collection(null);
+    console.log('In hangBoardTemplate.js' + Template.currentData().settings);
     HangBoardFormData.insert({
         user: Meteor.userId(),
         date: new Date(),       
-        settings:{
-           on: 7,
-           off: 3,
-           repsGoals:[7,6,5]}, //7 reps first set, 6 in second set and 5 in last set
-        weight: this.weight,   
+        settings: Template.currentData().settings, 
+        weight: Template.currentData().weight,   
         exercises: []
     });
 });
