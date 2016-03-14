@@ -6,10 +6,10 @@ Template.hangBoardExercise.onCreated(function(){
     //used to toggle insertion of newHangBoardSet template into exercise
     this.newSet = new ReactiveVar( false );
 
-    console.log(this.ParentHangBoard 
     //oldData = Strength_Hang_Board.findOne({},{sort:{date: -1, limit:1} }); 
     //this collection is for building the exercise data for THIS TEMPLATE 
-    
+ });
+   
     /*
     NewHangBoardExercises.insert({
         date:new Date(),
@@ -22,7 +22,6 @@ Template.hangBoardExercise.onCreated(function(){
         
         
 
-});
 
 /******************** hangBoardExercise Herlpers ***********************/
 Template.hangBoardExercise.helpers({

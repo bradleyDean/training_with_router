@@ -1,11 +1,11 @@
 //TODO: When users amass larges sets of trainng data,
-//they will probably only need recent data, so these subscriptions should be 
+//they will probably only need recent data, so the publication should be 
 //changed accordingly.
 
 //Publish this user's hangboard data
 Meteor.publish('strength_hang_board', function(){
     var userId = this.userId;
-    currentUserStrengthHangBoardData = Strength_Hang_Board.find({'user': userId}); 
+    currentUserStrengthHangBoardData = Strength_Hang_Board.find({'user': 'Meteor.userId()'},{sort:{date:-1}, limit:5}); 
     if (currentUserStrengthHangBoardData){
         return currentUserStrengthHangBoardData;
     }
@@ -25,4 +25,5 @@ Meteor.publish('ARC_Treadwall', function(){
 /**********************Various Workout Settings***************************/
 Meteor.publish('strengthHangBoardSettings', function(){
     return StrengthHangBoardSettings.find({});
+    console.log(this.UserId());
 });
