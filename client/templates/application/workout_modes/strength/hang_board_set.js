@@ -1,5 +1,6 @@
 Template.hangBoardSet.onCreated(function(){
     this.showNotes = new ReactiveVar( false );
+    Template.parentData().ach = 0;
 });
 
 Template.hangBoardSet.helpers({

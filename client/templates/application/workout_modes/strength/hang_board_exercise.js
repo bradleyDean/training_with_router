@@ -63,8 +63,27 @@ Template.hangBoardExercise.events({
         template.showExercise.set( !template.showExercise.get() ); // toggle value of show exercise 
     } ,
    'click .new-set': function(event, template){
+       /*
        event.preventDefault();
-       template.newSet.set( !template.newSet.get() ); 
-   } 
+       //template.newSet.set( !template.newSet.get() ); 
+       //console.log(Template.parentData()['sets']);
+       
+       Strength_Hang_Board.update( ['sets'].push( { 
+                   resist: 0,
+                   ach: 0,
+                   felt: 0
+               },
+               { 
+                   resist:0, 
+                   ach:0 ,
+                   felt: 0
+               },
+               { 
+                   resist: 0, 
+                   ach: 0, 
+                   felt: 0
+               });  
+               */
+       } 
 
 });

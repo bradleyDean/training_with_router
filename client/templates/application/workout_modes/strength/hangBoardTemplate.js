@@ -2,14 +2,15 @@ Template.hangBoardForm.onCreated(function(){
 
     oldData = Strength_Hang_Board.findOne({}, {sort: {date: -1, limit: 1}});
     
-    Strength_Hang_Board.insert({
-        isNewData: true,
-        user: oldData.user,
-        date: new Date(),
-        settings: oldData.settings,
-        weight: oldData.weight,
-        exercises: oldData.exercises
-    }); 
+    newHB_id = Strength_Hang_Board.insert({
+                                            isNewData: true,
+                                            user: oldData.user,
+                                            date: new Date(),
+                                            settings: oldData.settings,
+                                            weight: oldData.weight,
+                                            exercises: oldData.exercises
+                                        });
+   Session.set('newHB_id',newHB_id); 
 });
 
 Template.registerHelper('increment', (i) => { 
