@@ -47,6 +47,8 @@ Template.hangBoardExercise.helpers({
         ] 
 
     },
+    //if the value of the select option (this) == the data sent to the template, then populate the selected='...' attribute.
+    //see template for usage.
     isPrevGrip: function(){ return Template.instance().data.grip === this.val ? 'selected':'' ;},
 
     gripOptionAttributes: function(){
@@ -63,8 +65,10 @@ Template.hangBoardExercise.events({
         template.showExercise.set( !template.showExercise.get() ); // toggle value of show exercise 
     } ,
    'click .new-set': function(event, template){
+       
+       //event.preventDefault();
+       exId = Template.instance().exIndex; 
        /*
-       event.preventDefault();
        //template.newSet.set( !template.newSet.get() ); 
        //console.log(Template.parentData()['sets']);
        
