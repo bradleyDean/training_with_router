@@ -67,27 +67,21 @@ Template.hangBoardExercise.events({
    'click .new-set': function(event, template){
        
        //event.preventDefault();
-       exId = Template.instance().exIndex; 
-       /*
+       console.log(Session.get('newHB_id'));
+       exIndex = Template.instance().data.exIndex; 
+       console.log('exIndex:'+exIndex);
+       update = {$push:{}}; 
+       update.$push['exercises.'+exIndex+'.sets'] = {field:{ach:0, felt:0, goal:0}} 
        //template.newSet.set( !template.newSet.get() ); 
        //console.log(Template.parentData()['sets']);
-       
-       Strength_Hang_Board.update( ['sets'].push( { 
-                   resist: 0,
-                   ach: 0,
-                   felt: 0
-               },
-               { 
-                   resist:0, 
-                   ach:0 ,
-                   felt: 0
-               },
-               { 
-                   resist: 0, 
-                   ach: 0, 
-                   felt: 0
-               });  
-               */
-       } 
+       console.log(update); 
+       Strength_Hang_Board.update({_id: Session.get('newHB_id') },update,
+           function(error){
+               if (error){
+                   console.log(error);
+               }
+
+           });
+   }  
 
 });

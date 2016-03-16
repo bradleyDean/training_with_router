@@ -1,6 +1,6 @@
 Template.hangBoardForm.onCreated(function(){
 
-    oldData = Strength_Hang_Board.findOne({}, {sort: {date: -1, limit: 1}});
+    oldData = Strength_Hang_Board.findOne({}, {sort: {date: -1}});
     
     //for accessing the new hang board record in the Strength_Hang_Board collection, use newHB_id. 
     newHB_id = Strength_Hang_Board.insert({
