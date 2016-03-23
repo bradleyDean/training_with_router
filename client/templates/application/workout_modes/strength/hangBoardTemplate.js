@@ -37,10 +37,19 @@ Template.hangBoardForm.helpers({
       return Strength_Hang_Board.find({}, {sort: {date: -1, limit: 1}}).fetch()[0]; 
     }, */
     settings: function(){
-      return Strength_Hang_Board.find({},{settings:1, _id:0}, {sort: {date: -1}, limit: 1}).fetch()[0].settings;
+        //s =  Strength_Hang_Board.find({},{fields:{settings:1, _id:0}, sort: {date: -1}, limit: 1});
+      return Strength_Hang_Board.find({},{fields:{settings:1, _id:0}}, {sort: {date: -1}, limit: 1}).fetch()[0].settings;
     },
     exercises: function(){
-        return Strength_Hang_Board.find({},{exercises:1, _id:0}, {sort: {date: -1}, limit: 1}).fetch()[0].exercises; 
+        /*
+        c = Strength_Hang_Board.find({},{fields: {exercises:1}, sort:{date: -1}, limit: 1}, 
+                function(error){ //callback for handling mongo errors
+                   if (error){
+                       console.log(error);
+                   }
+               });
+*/
+        return Strength_Hang_Board.find({_id:Session.get('newHB_id')}).fetch()[0].exercises;
     }
    
 

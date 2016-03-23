@@ -20,8 +20,11 @@ Meteor.publish('ARC_Treadwall', function(){
     return this.ready();
 });
 
+Meteor.publish('exercises_collection', function(){
+    currentUserExercises = Exercises.find({user: this.userId});
+});
 /**********************Various Workout Settings***************************/
 Meteor.publish('strengthHangBoardSettings', function(){
     return StrengthHangBoardSettings.find({});
-    console.log(this.UserId());
+    //console.log(this.UserId());
 });
