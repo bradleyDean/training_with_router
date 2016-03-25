@@ -34,7 +34,7 @@ Template.hangBoardExercise.helpers({
     exerciseFormAttributes: function(){
         return {class: Template.instance().showExercise.get() ? 'form-horizontal collapse in': 'form-horizontal collapse'}
     },
-   exerciseButtonSpanAttributes: function(){
+    exerciseButtonSpanAttributes: function(){
        return{class: Template.instance().showExercise.get() ? 'glyphicon glyphicon-chevron-down': 'glyphicon glyphicon-chevron-right'}
     },
 
@@ -63,7 +63,7 @@ Template.hangBoardExercise.helpers({
 Template.hangBoardExercise.events({
     'click .ex_hider': function(event, template){
         template.showExercise.set( !template.showExercise.get() ); // toggle value of show exercise 
-    } ,
+    },
    'click .new-set': function(event, template){
        
        //event.preventDefault();
@@ -80,7 +80,6 @@ Template.hangBoardExercise.events({
                if (error){
                    console.log(error);
                }
-
            });
    }  
 

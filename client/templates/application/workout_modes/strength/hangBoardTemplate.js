@@ -27,14 +27,17 @@ Template.registerHelper('extendContext', function(key,value){
 
 Template.hangBoardForm.helpers({
     //TODO: are these querries doing what I am trying to get them to do? 
+    /*
     newData: function(){
-      return Strength_Hang_Board.find({}, {sort: {date: -1, limit: 1}}).fetch()[0]; 
-    },
+      return Strength_Hang_Board.find({_id: Session.get('newHB_id')}, {sort: {date: -1}, limit: 1}).fetch()[0]; 
+    },*/
     settings: function(){
-      return Strength_Hang_Board.find({},{settings:1, _id:0}, {sort: {date: -1}, limit: 1}).fetch()[0].settings;
+      return Strength_Hang_Board.find({_id: Session.get('newHB_id')}).fetch()[0].settings;
     },
     exercises: function(){
-        return Strength_Hang_Board.find({},{exercises:1, _id:0}, {sort: {date: -1}, limit: 1}).fetch()[0].exercises; 
+        return Strength_Hang_Board.find({_id: Session.get('newHB_id')}).fetch()[0].exercises; 
+
+        //return Strength_Hang_Board.find({}, {sort:{date:-1}}); 
     }
    
 
