@@ -22,11 +22,21 @@ Meteor.publish('ARC_Treadwall', function(){
 //TODO: Think about what exercises we really need to publish. Probably only exercises logged recently or corresponding to the previous workout.
 Meteor.publish('exercises_collection', function(){
     currentUserExercises = Exercises.find({user: this.userId});
+    if (currentUserExercises){
+            return currentUserExercises;
+        }
+        return this.ready();
 });
 /**********************Various Workout Settings***************************/
 //TODO: Remove 'strengthHangBoardSettings' and use the 'trainingSettings' collection instead.
-Meteor.publish('strengthHangBoardSettings', function(){
-    return StrengthHangBoardSettings.find({user: this.userId});
+Meteor.publish('training_settings', function(){
+
+    currentTrainingSettings =  TrainingSettings.find({user: this.userId,type: 'strengthHangBoard'});
+    if (currentTrainingSettings){
+        return currentTrainingSettings;
+    }
+    return this.ready();
+
     //console.log(this.UserId());
 });
 
