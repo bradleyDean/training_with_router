@@ -23,6 +23,11 @@
                 {{> hangBoardExercise  extendContext exId=. exIndex=@index }} 
                 <!--extendContext 'exIndex' @index-->
             {{/each}}
+
+            <div class='well'>
+                <input type='button' class='btn-sm btn-primary new-ex' value='New Exercise' name='' />
+            </div>
+
             <div class='well'>
                 <input type='submit' class='btn-lg btn-primary submit-ex' value='Submit Hangboard Data' name='' />
             </div>

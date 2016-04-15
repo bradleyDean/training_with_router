@@ -1,10 +1,11 @@
 Template.hangBoardExercise.onCreated(function(){
     /***in this block, 'this.' refers to the current template instance.***/
-    console.log("logging hangBoardExerice onCreeated and 'this' is: " + this);
+    //console.log("logging hangBoardExerice onCreeated and 'this' is: " + this);
     //showExercise is used to toggle .exerciseFormAttributes to collape/show the exercise
     this.showExercise = new ReactiveVar( true );
-    mysteryObject = this;
-    
+    //mysteryObject = this;
+    this.data.exercise = Exercises.findOne({ _id: Template.instance().data.exId});
+
     //Meteor.subscribe('single_ex_collection',this.data.exId);
     //this.data.exercise =Exercises.findOne({ _id: this.data.exId});    
     //console.log(this);
