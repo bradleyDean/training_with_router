@@ -1,6 +1,5 @@
 <template name='hangBoardExercise'>
     <div name='exercise' class='well'>
-        <p> In hang_board_exercise.html</p>
 		<h3 ><!-- NOTE: change id='ex_hider_1' to appropriate exercise number throughout document -->
 
 			<button type="button" class="ex_hider btn btn-info btn-sm">
@@ -42,12 +41,9 @@
                            {{#each sets}}
                               {{> hangBoardSet setIndex = @index}}
                            {{/each}}
-                           {{#if newSet}}
-                              {{> newHangBoardSet}}
-                           {{/if}}
                            
 
-                           <tr> <button class="glyphicon glyphicon-plus new-set" >New Set</button></tr>
+                           <tr> <button class="glyphicon glyphicon-plus new_set" type="button" >New Set</button></tr>
 
                            
                         </tbody>

@@ -11,6 +11,9 @@ Template.hangBoardExercise.onCreated(function(){
 
 /******************** hangBoardExercise Herlpers ***********************/
 Template.hangBoardExercise.helpers({
+    sets: function(){
+        return Template.instance().data.exercise.sets;
+    },
     showExercise: function(){
         return Template.instance().showExercise.get();
     },
@@ -41,4 +44,18 @@ Template.hangBoardExercise.helpers({
            //selected: Template.instance().data.grip === this.val ? 'selected' : '' //set selected to 'selected' if 
        } 
     }
+});
+
+/***************************** EVENTS ***************************************/
+Template.hangBoardExercise.events({
+    'click .ex_hider': function(event, template){
+        template.showExercise.set( !template.showExercise.get() ) // toggle value of show notes
+    },
+    'click .new_set': function(event, template){
+        event.preventDefault();
+        console.log("Template.instance().data.exID: "+Template.instance().data.exId);
+
+        
+    }
+    
 });

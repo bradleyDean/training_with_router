@@ -47,17 +47,17 @@ if (Workouts.find().count() === 0) {
                                   grip: 'jug',
                                   sets:
                                       [{ 
-                                           resist: 0,
+                                           resist: 1,
                                            ach:7,
                                            felt: 3
                                        },
                                        { 
-                                           resist:10, 
+                                           resist:2, 
                                            ach:6 ,
                                            felt: 3
                                        },
                                        { 
-                                           resist:20, 
+                                           resist:3, 
                                            ach:5 ,
                                            felt:4 
                                        }]
@@ -68,17 +68,17 @@ if (Workouts.find().count() === 0) {
                                   grip: 'lg_edge',
                                   sets:
                                       [{ 
-                                           resist: 0,
+                                           resist: 4,
                                            ach:7,
                                            felt: 3
                                        },
                                        { 
-                                           resist:10, 
+                                           resist:5, 
                                            ach:6 ,
                                            felt: 3
                                        },
                                        { 
-                                           resist:20, 
+                                           resist:6, 
                                            ach:5 ,
                                            felt:4 
                                        }]
@@ -90,17 +90,17 @@ if (Workouts.find().count() === 0) {
                                   grip: 'sm_edge',
                                   sets:
                                       [{ 
-                                           resist: 0,
+                                           resist: 7,
                                            ach:7,
                                            felt: 3
                                        },
                                        { 
-                                           resist:10, 
+                                           resist:8, 
                                            ach:6 ,
                                            felt: 3
                                        },
                                        { 
-                                           resist:20, 
+                                           resist:9, 
                                            ach:5 ,
                                            felt:4 
                                        }]
