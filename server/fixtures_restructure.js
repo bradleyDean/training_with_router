@@ -8,25 +8,25 @@ TrainingSettings.remove({});
 if (Workouts.find().count() === 0) {
 /******************* BUILD 1st Warmup and Insert ***************************/
    warmup1_1_id = Exercises.insert({
-                user:"tagiHhnyYSnE6JTJx",
+                user: "riXsmzmgZbgcs5rdi",
                 time:45,
                 difficulty: 9,
                 rest: 10 //use YDS for now, omit '5.' so '9' means 5.9
                 });
    warmup1_2_id =  Exercises.insert({
-                user:"tagiHhnyYSnE6JTJx",
+                user: "riXsmzmgZbgcs5rdi",
                 time:30,
                 difficulty: 10,
                 rest: 14
                 });
    warmup1_3_id =  Exercises.insert({
-                user:"tagiHhnyYSnE6JTJx",
+                user: "riXsmzmgZbgcs5rdi",
                 time:25,
                 difficulty: 9
                 });//end sets 
 
    warmup_id = ARC_Treadwall.insert({
-           user:"tagiHhnyYSnE6JTJx",
+           user: "riXsmzmgZbgcs5rdi",
            date: new Date(),
            sets:[ warmup1_1_id,warmup1_2_id,warmup1_3_id]//end sets 
         });
@@ -36,14 +36,14 @@ if (Workouts.find().count() === 0) {
 /********************* Build Hang Board Record (and Settings record) ***/
 //Settings:
      hb_ex_settings_id = TrainingSettings.insert({
-         user: "tagiHhnyYSnE6JTJx",
+         user:  "riXsmzmgZbgcs5rdi",
          type: 'strengthHangBoard',
          level: 'advanced',
          weight: 153
      });
 //hangboard exercises. 3 sets each (for now)
      hb_ex_1_id = Exercises.insert({
-                                  user: "tagiHhnyYSnE6JTJx",
+                                  user: "riXsmzmgZbgcs5rdi", 
                                   grip: 'jug',
                                   sets:
                                       [{ 
@@ -64,7 +64,7 @@ if (Workouts.find().count() === 0) {
                                    });
 
      hb_ex_2_id = Exercises.insert({
-                                  user: "tagiHhnyYSnE6JTJx",
+                                  user:  "riXsmzmgZbgcs5rdi",
                                   grip: 'lg_edge',
                                   sets:
                                       [{ 
@@ -86,7 +86,7 @@ if (Workouts.find().count() === 0) {
                                    });
 
      hb_ex_3_id = Exercises.insert({
-                                  user: "tagiHhnyYSnE6JTJx",
+                                  user:  "riXsmzmgZbgcs5rdi",
                                   grip: 'sm_edge',
                                   sets:
                                       [{ 
@@ -108,14 +108,14 @@ if (Workouts.find().count() === 0) {
                                   });
 //Insert hangboard record
      hang_board_id = Strength_Hang_Board.insert({
-           user:"tagiHhnyYSnE6JTJx",
+           user: "riXsmzmgZbgcs5rdi",
            date: new Date(),
            settings_id: hb_ex_settings_id, 
            exerciseIds:[hb_ex_1_id,hb_ex_2_id,hb_ex_3_id]
      });
 //Insert warmup_id and hang_board_id into Workouts collection.
      Workouts.insert({
-           user: "tagiHhnyYSnE6JTJx", 
+           user:  "riXsmzmgZbgcs5rdi",
            mode: 'strength', date: new Date() , 
            warmup: [{warmup_id: warmup_id, from:'arc_Treadwall'}], 
            workout:[{workout_id: hang_board_id, from:'strengh_hang_board'}]

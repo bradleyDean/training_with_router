@@ -36,17 +36,17 @@ Template.hangBoardForm.helpers({
     settings: function(){
         return  TrainingSettings.findOne({type: 'strengthHangBoard'},{sort:{date:-1}, limit:1}); 
             },
-    hb_data: function(){
+    ex_ids: function(){
         hang_board_id = Session.get('hang_board_id');
         if (hang_board_id){
             console.log('hang_board_id: '+ hang_board_id);
-          return Strength_Hang_Board.findOne({_id:hang_board_id},
-                                             {fields:{exerciseIds:1}});
+          return Strength_Hang_Board.findOne({_id:hang_board_id}, {fields:{exerciseIds:1}}).exerciseIds;
         }
 
         else{
             console.log('In ELSE:');
-            return Strength_Hang_Board.findOne({},{sort:{date:-1}});
+            return Strength_Hang_Board.findOne({},{sort:{date:-1},
+                                                  fields:{exerciseIds:1}});
         }
     }
 });

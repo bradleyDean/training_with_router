@@ -16,11 +16,12 @@
 
         </div>
         <form >
-            {{#each hb_data.exerciseIds }}
+            {{#each ex_ids }}
                 <!-- extendContext clones the @index and renames it 'exIndex' 
                     -exIndex refers to exercise index in child templates
                     -exIndex does not mutate @index in child templates -->
-                {{> hangBoardExercise extendContext 'exIndex' @index}} 
+                {{> hangBoardExercise  extendContext exId=. exIndex=@index }} 
+                <!--extendContext 'exIndex' @index-->
             {{/each}}
             <div class='well'>
                 <input type='submit' class='btn-lg btn-primary submit-ex' value='Submit Hangboard Data' name='' />
