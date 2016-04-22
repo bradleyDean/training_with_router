@@ -39,7 +39,7 @@
                         <tbody>
 
                            {{#each sets}}
-                              {{> hangBoardSet setIndex = @index}}
+                              {{> hangBoardSet extendContext setIndex=@index exerciseId = exId}}
                            {{/each}}
                            
 

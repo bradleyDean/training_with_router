@@ -9,9 +9,6 @@ Template.hangBoardSet.helpers({
     },
     repsGoals: function(){
         return settings.repsGoals; 
-    },
-    setAch: function(){
-       return Template.instance().ach; 
     }
 });
 
@@ -20,7 +17,6 @@ Template.hangBoardSet.events({
         template.showNotes.set( !template.showNotes.get() ) // toggle value of show notes
     },
     'keyup #ach': function(event){
-       exIndex = Template.parentData().exIndex;
-       Template.parentData().newExercise.push; 
-
-    }});
+        //Exercises.update({_id:Template.instance().data.exerciseId},{});
+    }
+    });

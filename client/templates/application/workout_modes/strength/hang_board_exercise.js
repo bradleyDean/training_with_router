@@ -14,6 +14,7 @@ Template.hangBoardExercise.onCreated(function(){
 
 /******************** hangBoardExercise Herlpers ***********************/
 Template.hangBoardExercise.helpers({
+    exId:function(){return Template.instance().data.exId},
 
     sets: function(){
         exercise = Exercises.findOne({ _id: Template.instance().data.exId});
@@ -63,7 +64,6 @@ Template.hangBoardExercise.events({
        console.log(Session.get('newHB_id'));
        exIndex = Template.instance().data.exIndex; 
        exId = Template.instance().data.exId;
-       console.log('exIndex:'+exIndex);
        update = {$push:{}}; 
        update.$push['sets'] = {field:{ach:0, felt:0, goal:0}} 
        //template.newSet.set( !template.newSet.get() ); 

@@ -3,6 +3,7 @@ Template.hangBoardForm.onCreated(function(){
     if (!Session.get('hang_board_id')){ // this session var is first set in strength_selector.js 
         /*_________insert new hang board record___________________*/ 
         //get old Hang Board record:
+        console.log('Getting old HB rec');
         oldHBrec = Strength_Hang_Board.findOne({}, {sort: {date: -1}});
         //build new exercises
         oldExerciseIds = oldHBrec.exerciseIds;
@@ -80,5 +81,11 @@ Template.hangBoardForm.events({
                }
 
            }); 
-    }
+    },
+ 'click .submit-ex':function(){
+     Session.set('hang_board_id',null);
+     Router.go('modeSelector'); 
+ }
+
+  
 });
