@@ -40,6 +40,20 @@ Meteor.publish('training_settings', function(){
     //console.log(this.UserId());
 });
 
+Meteor.publish('sets', function(){
+    //TODO: Need to add filters so not publishing too much data (limit to recent inserts, etc)
+    currentSets =  Sets.find({user: this.userId});
+    if (currentSets){
+        return currentSets;
+    }
+    return this.ready();
+
+    //console.log(this.UserId());
+});
+
+
+/*
 Meteor.publish('trainingSettings', function(){
     return TrainingSettings.find({user: this.userId});
 });
+*/

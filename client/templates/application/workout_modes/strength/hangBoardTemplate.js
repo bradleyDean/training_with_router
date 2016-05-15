@@ -53,21 +53,25 @@ Template.hangBoardForm.helpers({
 });
 
 Template.hangBoardForm.events({
+    //TODO: Fix so creates new set record, gets id and then inserts id into sets fiels in new_ex
     'click .new-ex': function(){
         console.log('CLICKED!!!');
         //get current Strength_Hang_Board collection id
         current_hb_id = Session.get('hang_board_id');
+        //generate new, blank set
+        new_set_id = Sets.insert({ user: Meteor.userId() ,
+                               resist: 0 ,
+                               ach:0 ,
+                               felt: 3
+                               });
+
+
         //insert new blank exercise in exercises, record new_ex_id
         new_ex = {
                   user:  Meteor.userId(),
                   grip: 'jug',
-                  sets:
-                      [{ 
-                           resist:0 ,
-                           ach:0,
-                           felt: 0
-                       }]
-        }
+                  sets: [new_set_id]
+        };
         //insert new_ex into Exercises collection
         new_ex_id = Exercises.insert(new_ex);
         //insert new_ex_id into hangboard collection with id 

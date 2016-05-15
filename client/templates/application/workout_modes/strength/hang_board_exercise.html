@@ -38,8 +38,8 @@
 					</thead>
                         <tbody>
 
-                           {{#each sets}}
-                              {{> hangBoardSet extendContext setIndex=@index exerciseId = exId}}
+                           {{#each setIds}}
+                              {{> hangBoardSet extendContext setIndex=@index exerciseId=exId setId=.}}
                            {{/each}}
                            
 

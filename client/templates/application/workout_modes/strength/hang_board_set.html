@@ -4,22 +4,18 @@
         <td >{{increment setIndex}} </td>
         
 
-        <td ><input type="number" class="form-control" name='rep_goal' placeholder={{../goal}} value = {{../goal}} min='1'></td>
+        <td ><input type="number" class="form-control" name='rep_goal' placeholder={{set.goal}} value = {{set.goal}} min='1'></td>
 
-        <td><input type="number" class="form-control"  name='rep_ach' id='ach' value={{../ach}} min='0' ></td>
+        <td><input type="number" class="form-control"  name='rep_ach' id='ach' value={{set.ach}} min='0' ></td>
 
-        <td> <input type="number" class="form-control" name='resistance'  value={{../resist}} ></td>
+        <td> <input type="number" class="form-control" name='resistance'  value={{set.resist}} ></td>
 
         <!-- BEGIN range (easy vs. hard) selector -->
         <td>
-            <select  name='felt' class = 'felt' > <!--CHANGE -->
-                <option value='1' >Too Easy</option>
-                <option value='2' >Easy</option>
-                <option value='3' selected>Moderate</option>
-                <option value='4' >Hard</option>
-                <option value='5' >Brutal</option>
-                <option value='6' >Too Hard</option>
-
+            <select  name='felt'  > <!--CHANGE -->
+                {{#each feltOptions}}
+                    <option value={{val}} {{isFelt}}>{{label}}</option>  
+                {{/each}} 
             </select>
 
         </td>

@@ -16,7 +16,7 @@ Template.hangBoardExercise.onCreated(function(){
 Template.hangBoardExercise.helpers({
     exId:function(){return Template.instance().data.exId},
 
-    sets: function(){
+    setIds: function(){
         exercise = Exercises.findOne({ _id: Template.instance().data.exId});
         return exercise.sets;
     },
@@ -47,7 +47,6 @@ Template.hangBoardExercise.helpers({
        return {
            value: this.val,
            label: this.label
-           //selected: Template.instance().data.grip === this.val ? 'selected' : '' //set selected to 'selected' if 
        } 
     }
 });
@@ -57,6 +56,10 @@ Template.hangBoardExercise.events({
     'click .ex_hider': function(event, template){
         template.showExercise.set( !template.showExercise.get() ) // toggle value of show notes
     },
+    'change [name=grip]': function(event){
+       newGrip = $(event.target).val();
+       Exercises.update({_id:Template.instance().data.exId},{$set:{grip: newGrip }});
+    },
     'click .new_set': function(event, template){
         console.log("Template.instance().data.exID: "+Template.instance().data.exId);
 
@@ -64,8 +67,14 @@ Template.hangBoardExercise.events({
        console.log(Session.get('newHB_id'));
        exIndex = Template.instance().data.exIndex; 
        exId = Template.instance().data.exId;
+       newSet = Sets.insert({ user: Meteor.userId(),
+                           resist:0 ,
+                           goal:7,
+                           felt:3 
+                           });
+
        update = {$push:{}}; 
-       update.$push['sets'] = {field:{ach:0, felt:0, goal:0}} 
+       update.$push['sets'] = newSet; 
        //template.newSet.set( !template.newSet.get() ); 
        //console.log(Template.parentData()['sets']);
        console.log(update); 
