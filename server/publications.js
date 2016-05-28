@@ -4,7 +4,7 @@
 
 //Publish this user's hangboard data
 Meteor.publish('strength_hang_board', function(){
-    currentUserStrengthHangBoardData = Strength_Hang_Board.find({user: this.userId},{sort:{date:-1}, limit:5}); 
+    currentUserStrengthHangBoardData = Strength_Hang_Board.find({user: this.userId},{sort:{date:-1}, limit:3}); 
     if (currentUserStrengthHangBoardData){
         return currentUserStrengthHangBoardData;
     }
@@ -49,6 +49,15 @@ Meteor.publish('sets', function(){
     return this.ready();
 
     //console.log(this.UserId());
+});
+
+Meteor.publish('workouts',function(){
+    //TODO: filter which workouts are sent to the client
+    recentWorkouts = Workouts.find({});
+    if (recentWorkouts){
+        return recentWorkouts;
+    } 
+    return this.ready();
 });
 
 

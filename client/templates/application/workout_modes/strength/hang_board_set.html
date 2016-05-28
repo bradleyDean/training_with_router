@@ -2,11 +2,29 @@
     <tr class='set'>
         
         <td >{{increment setIndex}} </td>
-        
+
+        {{#if showPrevious}}
+        {{ #each recentData.goals }} 
+            <td class='text-muted'> {{this}}  </td>
+            {{/each }} 
+        {{/if}} 
 
         <td ><input type="number" class="form-control" name='rep_goal' placeholder={{set.goal}} value = {{set.goal}} min='1'></td>
 
+        {{#if showPrevious}}
+            {{#each recentData.ach}} 
+            <td class='text-muted'> {{this}}  </td>
+            {{/each}}
+        {{/if}} 
+
         <td><input type="number" class="form-control"  name='rep_ach' id='ach' value={{set.ach}} min='0' ></td>
+
+        {{#if showPrevious}}
+            {{#each recentData.resist}} 
+            <td class='text-muted'> {{this}}  </td>
+            {{/each}}
+
+        {{/if}} 
 
         <td> <input type="number" class="form-control" name='resistance'  value={{set.resist}} ></td>
 
@@ -21,25 +39,37 @@
         </td>
         <!-- END range (easy vs. hard) slider -->
 
-        <!-- BEGIN collapse notes/notes textarea --> 	
+        <!-- BEGIN collapse notes/notes textarea --> 
         <td>
             {{#if showNotes}}
-                <div class="form-group">
-                    <button type="button" class="note_hider btn btn-info btn-sm pull-right"> 
+                <div class="form-group" >
+                    <button type="button" class="note_hider btn btn-info btn-sm " > 
                         <span class='glyphicon glyphicon-chevron-down'></span>
                     </button>
-                    <textarea class="form-control notes" rows="5"  name='notes'></textarea>
                 </div> 
 
             {{else}}
-                <div class="form-group">
-                    <button type="button" class="note_hider btn btn-info btn-sm pull-right"> 
+                <div class="form-group" >
+                    <button type="button" class="note_hider btn btn-info btn-sm "> 
                         <span class='glyphicon glyphicon-chevron-left'></span>
                     </button>
-                    <textarea class="form-control notes collapse" rows="5"  name='notes'></textarea>
                 </div> 
             {{/if}}
         </td><!--END collapse notes/notes textarea -->
+
+
+    </tr>    
+            {{#if showNotes}}
+
+    <tr border='0'>
+        <td></td>
+        <td></td>
+        <td colspan='4' >
+            <div class="row">
+                <textarea class="form-control notes col-xs-12"  name='notes'> {{notes}} </textarea>
+            </div>
+        </td>
     </tr>
+            {{/if}}
 
 </template>

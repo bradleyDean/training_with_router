@@ -1,49 +1,87 @@
 <template name='hangBoardExercise'>
-    <div name='exercise' class='well'>
-		<h3 ><!-- NOTE: change id='ex_hider_1' to appropriate exercise number throughout document -->
+    <div name='exercise' class='well well-sm'>
+            <div class='row' >
+                <h3>
+                    <div class='col-lg-4'>
+                        <button type="button" class="btn btn-info btn-sm pull-right" name="togglePrev" align='left'>
+                            <span class="glyphicon glyphicon-transfer"> </span>
+                        </button>
+                    </div>
+                    <div class='col-sm-4' align='center'> Grip {{increment exIndex}}: {{gripLabel}}</div> 
 
-			<button type="button" class="ex_hider btn btn-info btn-sm">
-
-                Toggle Exercise {{increment exIndex}} 
-                     <span {{exerciseButtonSpanAttributes}}></span>
-
-			</button>
-		</h3>
+                    <div class='col-lg-4'>
+                        <button type="button" class="ex_hider btn btn-info btn-sm pull-left">
+                             <span {{exerciseButtonSpanAttributes}}></span>
+                        </button>
+                    </div>
+            </h3>
+            </div>
 
 		<!-- ******** Collapse This ******************-->
         <div {{exerciseFormAttributes}}>
 
 				<div class='row'> 
+
 					<div class='col-sm-5'>
 							<select  name='grip' class = 'grip_selector' > <!--CHANGE -->
                                 {{#each gripOptions}}
-                                <option value={{val}} {{isPrevGrip}}>{{label}}</option>  
+                                    <option value={{val}} {{isPrevGrip}}>{{label}}</option>  
                                 {{/each}} 
 							
 							</select>
 					</div> 
+
 				</div><!--end 'grip_select' div-->
 
 				<!-- BEGIN set data input area -->
-				<table class="table collapse in">
+				<table class="table-condensed collapse in">
 					<thead>
 						<tr>
                             <th class='col-lg-1'>Set </th>
-							<th class='col-lg-1 col-xs-2'>Goal Reps</th>
-							<th class='col-lg-1 col-xs-2'>Reps Achieved</th>
-							<th class='col-xs-1'>Resistance</th>
-							<th class='col-xs-2'>Felt?</th>
+
+                            {{#if showPrevious}}
+                                {{#each prevDates}}
+                                <th align='center' class='text-muted'>{{this}}</th>
+                                {{/each}}
+                            {{/if}}
+
+                            <th class='col-lg-1 col-xs-2'> 
+                                Goal
+                            </th>
+
+                            {{#if showPrevious}}
+                                {{#each prevDates}}
+                                <th align='center' class='text-muted'>{{this}}</th>
+                                {{/each}}
+                            {{/if}}
+
+							<th class='col-lg-1 col-xs-2'>
+
+                                Achieved
+                            </th>
+
+                            {{#if showPrevious}}
+                                {{#each prevDates}}
+                                <th align='center' class='text-muted'>{{this}}</th>
+                                {{/each}}
+                            {{/if}}
+  
+							<th class='col-xs-1'>
+                                Weight 
+                            </th>
+
+							<th class='col-xs-1'>Felt?</th>
 							<th class='col-xs-1'>Notes</th>
 						</tr>
 					</thead>
                         <tbody>
 
                            {{#each setIds}}
-                              {{> hangBoardSet extendContext setIndex=@index exerciseId=exId setId=.}}
+                              {{> hangBoardSet extendContext setIndex=@index exerciseId=exId setId=. showPrevious=showPrevious exIndex=exIndex}}
                            {{/each}}
                            
 
-                           <tr> <button class="glyphicon glyphicon-plus new_set" type="button" >New Set</button></tr>
+                           <tr> <button class="glyphicon glyphicon-plus new_set" type="button" ></button></tr>
 
                            
                         </tbody>

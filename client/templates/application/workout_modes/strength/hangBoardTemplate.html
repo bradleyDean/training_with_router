@@ -2,16 +2,21 @@
     <div class='container'>    
         <div class='well row'>
             <div class='col-sm-2'>
-                <label for='training-level'>Training Level: {{settings.level}}</label>
+                <label for="training-level">Level:</label>
                 <select  name='training-level' class = 'training-level ' > <!--CHANGE -->
-                    <option  >Beginner</option>
-                    <option  >Intermediate</option>
-                    <option >Advanced</option>
+                                {{#each trainingLevelOptions}}
+                                <option value={{val}} {{isPrevLevel}}>{{label}}</option>  
+                                {{/each}} 
                 </select>
             </div>
             <div class='col-sm-4'>
-                <label for='userweight'>Weight:</label>
-                <input type="number" class="form-control col-sm-4"   name='userWeight' placeholder={{settings.weight}} value = {{currentWeight}} min='1' >
+                <label for='userWeight'>Weight:</label>
+                <input type="number" class="form-control col-sm-4"   name='userWeight' placeholder={{settings.weight}} value = {{weight}}  min='1' >
+            </div>
+
+            <div class='col-sm-4'>
+                <label for='workout-number'>Workout Number:</label>
+                <input type='' disabled='disabled' value='{{hang_board_session_number}}'/>
             </div>
 
         </div>
@@ -20,14 +25,14 @@
                 <!-- extendContext clones the @index and renames it 'exIndex' 
                     -exIndex refers to exercise index in child templates
                     -exIndex does not mutate @index in child templates -->
-                {{> hangBoardExercise  extendContext exId=. exIndex=@index }} 
+                {{> hangBoardExercise  extendContext exId=. exIndex=@index hangBoardRecord=hangBoardRecord }} 
                 <!--extendContext 'exIndex' @index-->
             {{/each}}
 
             <div class='well'>
-                <input type='button' class='btn-sm btn-primary new-ex' value='New Exercise' name='' />
+                <input type='button' class='btn-sm btn-primary new-ex' value='New Grip' name='' />
 
-                <input type='button' class='btn-sm btn-primary submit-ex pull-right' value="I'm worked! Record my data." name='' />
+                <input type='button' class='btn-sm btn-primary submit-ex pull-right' value="Save" name='' />
             </div>
         </form>
     </div>
